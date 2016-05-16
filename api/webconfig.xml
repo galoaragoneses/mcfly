@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?> 
+<webconfig>
+
+	<baseurl>http://localhost/www/git_app/zion/</baseurl>
+
+	<database>
+		<server>localhost</server>
+		<user>root</user>
+		<pass></pass>
+		<schema>notesbook</schema>
+	</database>
+
+	<email>
+		<user>notesbook.puppeteer@gmail.com</user>
+		<pass>Not3sb00k$_</pass>
+	</email>
+
+</webconfig>

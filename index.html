@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 	<title>FraseApp</title>
+
+    <!-- Libs -->
+    <script src="app/libs/angular.min.js"></script>
+
+    <!-- App -->
+ 	<script src="app/app.js"></script>
+
+    <!-- Controllers App -->
+    <script src="app/controllers/homeController.js"></script>
+
+    <!-- Services App -->
+    <script src="app/services/ajaxService.js"></script>
+
+ </head>
+
+ <body ng-app="fraseApp" ng-controller="homeController">
+
+    <button ng-click="dummy()">PBI - 1</button>
+    <blockquote>{{ data.dummyResponse }}</blockquote>
+
+ </body>
+
+ </html>
