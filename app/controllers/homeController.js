@@ -2,10 +2,9 @@
 fraseApp.controller('homeController', ['$scope', '$http',
 	function($scope, $http) { 
 
-		$scope.data = {
-			dummyResponse: ""
-		};
+		$scope.data = {};
 
+		$scope.data.dummyResponse = "";
 		$scope.dummy = dummy;
 
 		function dummy() {
@@ -31,6 +30,20 @@ fraseApp.controller('homeController', ['$scope', '$http',
 			}).then(function(response) {
 				debugger;
 				$scope.data.dummyResponse = "Valor devuelto:" + response.data;
+			}, function(err) {
+				throw err;
+			});
+		}
+
+		$scope.data.fraseList = [];
+		$scope.getAll = getAll;
+
+		function getAll() {
+			$http({
+				method: 'GET',
+				url: 'api/frase'
+			}).then(function(response) {
+				$scope.data.fraseList = response.data.frases;
 			}, function(err) {
 				throw err;
 			});

@@ -33,8 +33,22 @@
 			$request_body = HttpEngineService::get_array_from_json_body();
 
 
-			if ($this->method == "PUT")
-				return $this->insert($request_body["frase"]);
+			switch ($this->method) {
+			 	case 'PUT':
+					return $this->insert($request_body["frase"]);
+			 		break;
+			 	
+			 	case 'GET':
+			 	default:
+			 		$params_count = count(RoutingEngineService::get_params());
+
+			 		if (!$params_count) {
+			 			//get_all
+						HttpEngineService::set_response_json_headers();
+			 			return json_encode($this->json_frases_array);
+			 		}
+			 		break;
+			 }
 
 
 		}
@@ -68,5 +82,7 @@
 			return $max_id + 1;
 
 		}
+
+
 
 	}

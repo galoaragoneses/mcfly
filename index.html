@@ -34,6 +34,12 @@
     <br />
     <button ng-click="insertFrase()">PBI - 2</button>
 
+    <h3>PBI - 3</h3>
+    <button ng-click="getAll()">Get All - PBI - 3</button>
+    <ul>
+        <li ng-repeat="fraseObj in data.fraseList">{{ fraseObj.frase }}</li>
+    </ul>
+
  </body>
 
  </html>
