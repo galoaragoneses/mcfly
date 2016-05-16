@@ -38,7 +38,7 @@
     <button ng-click="getAll()">Get All - Get By Id - Marcar Favoritos</button>
     <ul>
         <li ng-repeat="fraseObj in data.fraseList">
-            {{ fraseFormated(fraseObj) + "-" + fraseObj.favorita }}
+            {{ fraseFormated(fraseObj) }}
             <button ng-click="getById(fraseObj.id)">Get</button>
             <button ng-click="markAsFavorita(fraseObj.id)"><span ng-if="fraseObj.favorita">ELIMINAR</span><span ng-if="!fraseObj.favorita">MARCAR COMO</span> favorita</button>
         </li>
@@ -50,6 +50,14 @@
 
     <button ng-click="getById(data.id)">Get - PBI - 4</button><br />
     <label for="frase_id">Id</label>:<input type="number" ng-model="data.id" />
+
+    <h3>PBI - 6</h3>
+    <button ng-click="getAllFavoritas()">Get Favoritas</button>
+    <ul>
+        <li ng-repeat="fraseObj in data.frasesFavoritasList">
+            {{ fraseFormated(fraseObj) }}
+        </li>
+    </ul>
 
  </body>
 

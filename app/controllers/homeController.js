@@ -42,7 +42,7 @@ fraseApp.controller('homeController', ['$scope', '$http',
 				method: 'GET',
 				url: 'api/frase'
 			}).then(function(response) {
-				$scope.data.fraseList = response.data.frases;
+				$scope.data.fraseList = response.data;
 			}, function(err) {
 				throw err;
 			});
@@ -81,6 +81,21 @@ fraseApp.controller('homeController', ['$scope', '$http',
 				url: aux_url
 			}).then(function(response) {
 				$scope.getAll();
+				$scope.getAllFavoritas();
+			}, function(err) {
+				throw err;
+			});
+		}
+
+		$scope.data.frasesFavoritasList = [];
+		$scope.getAllFavoritas = getAllFavoritas;
+
+		function getAllFavoritas() {
+			$http({
+				method: 'GET',
+				url: 'api/frase/favoritas'
+			}).then(function(response) {
+				$scope.data.frasesFavoritasList = response.data;
 			}, function(err) {
 				throw err;
 			});

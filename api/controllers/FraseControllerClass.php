@@ -44,18 +44,28 @@
 			 		$params_count = count($params);
 
 			 		if (!$params_count) {
-			 			//get_all
-						HttpEngineService::set_response_json_headers();
-			 			return json_encode($this->json_frases_array);
 
-			 		} else if ($params_count == 1) {
+			 			//get_all
+			 			return json_encode($this->json_frases_array["frases"]);
+
+			 		} else if ($params_count == 1 && intval($params[0])) {
+
 			 			//get_by_id
 			 			$id = intval($params[0]);
 			 			return json_encode($this->get_by_id($id));
+
 			 		} else if ($params_count == 2 && $params[1] == "favorita") {
+
 			 			//mark_as_favorita
 			 			$id = intval($params[0]);
 			 			return json_encode($this->mark_as_favorita($id));
+
+			 		} else if ($params_count == 1 && $params[0] == "favoritas") {
+
+			 			//get_all_favoritas
+			 			$id = intval($params[0]);
+			 			return json_encode($this->get_all_favoritas());
+
 			 		}
 
 			 		break;
@@ -133,6 +143,18 @@
 			}
 
 			throw "ERROR APPLICATION: Frase Not Found";
+
+		}
+
+
+		private function get_all_favoritas() {
+
+			function is_favorita($frase)
+			{
+			    return $frase["favorita"];
+			}
+
+			return array_filter($this->json_frases_array["frases"], "is_favorita");
 
 		}
 
