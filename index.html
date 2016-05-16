@@ -37,12 +37,12 @@
     <h3>PBI - 3</h3>
     <button ng-click="getAll()">Get All - PBI - 3</button>
     <ul>
-        <li ng-repeat="fraseObj in data.fraseList">{{ fraseObj.frase }}</li>
+        <li ng-repeat="fraseObj in data.fraseList">{{ fraseObj.id + " - " + fraseObj.frase }}</li>
     </ul>
 
     <h3>PBI - 4</h3>
     <button ng-click="getById()">Get - PBI - 4</button><br />
-    <input type="number" ng-model="data.id" /><br />
+    <label for="frase_id">Id</label>:<input type="number" ng-model="data.id" /><br />
     <blockquote>{{ data.fraseObj.id + "-" + data.fraseObj.frase }}</blockquote>
 
  </body>
