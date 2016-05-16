@@ -29,21 +29,26 @@
 
     <label for="frase">Nueva Frase:</label>
     <br />
-    <textarea placeholder="Introduce una nueva frase" ng-model="model.frase" id="frase" required></textarea> 
+    <textarea placeholder="Introduce una nueva frase" ng-model="model.frase" id="frase"></textarea> 
 
     <br />
     <button ng-click="insertFrase()">PBI - 2</button>
 
-    <h3>PBI - 3</h3>
-    <button ng-click="getAll()">Get All - PBI - 3</button>
+    <h3>PBI - 3, 4, 5</h3>
+    <button ng-click="getAll()">Get All - Get By Id - Marcar Favoritos</button>
     <ul>
-        <li ng-repeat="fraseObj in data.fraseList">{{ fraseObj.id + " - " + fraseObj.frase }}</li>
-    </ul>
+        <li ng-repeat="fraseObj in data.fraseList">
+            {{ fraseObj.id + " - " + fraseObj.frase }}
+            <button ng-click="getById(fraseObj.id)">Get</button>
+        </li>
+    </ul><br />
 
     <h3>PBI - 4</h3>
-    <button ng-click="getById()">Get - PBI - 4</button><br />
-    <label for="frase_id">Id</label>:<input type="number" ng-model="data.id" /><br />
-    <blockquote>{{ data.fraseObj.id + "-" + data.fraseObj.frase }}</blockquote>
+    <span ng-if="!data.fraseObj">Para obtener una sola frase, ejecutar el GET de la lista o obtenerla a partir del id</span><br />
+    <blockquote ng-if="data.fraseObj">{{ "id:" + data.fraseObj.id + ",frase:" + data.fraseObj.frase }}</blockquote>
+
+    <button ng-click="getById(data.id)">Get - PBI - 4</button><br />
+    <label for="frase_id">Id</label>:<input type="number" ng-model="data.id" />
 
  </body>
 

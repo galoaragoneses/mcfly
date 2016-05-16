@@ -48,11 +48,11 @@ fraseApp.controller('homeController', ['$scope', '$http',
 			});
 		}
 
-		$scope.data.fraseObj = {};
+		$scope.data.fraseObj = undefined;
 		$scope.getById = getById;
 
-		function getById() {
-			var aux_url = 'api/frase/' + $scope.data.id;
+		function getById(id) {
+			var aux_url = 'api/frase/' + id;
 			//console.log(aux_url);
 
 			$http({
