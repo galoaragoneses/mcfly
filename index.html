@@ -44,7 +44,7 @@
     </ul><br />
 
     <h3>PBI - 4</h3>
-    <span ng-if="!data.fraseObj">Para obtener una sola frase, ejecutar el GET de la lista o obtenerla a partir del id</span><br />
+    <span ng-if="!data.fraseObj">Para obtener una sola frase, ejecutar el GET de la lista o rellena el siguiente formulario para obtenerla a partir del id</span><br />
     <blockquote ng-if="data.fraseObj">{{ "id:" + data.fraseObj.id + ",frase:" + data.fraseObj.frase }}</blockquote>
 
     <button ng-click="getById(data.id)">Get - PBI - 4</button><br />
