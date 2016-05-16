@@ -29,12 +29,10 @@
 		 */
 		public function init() {
 
-			//1. Get User's fields from $request_body
-			$request_body = HttpEngineService::get_array_from_json_body();
-
-
 			switch ($this->method) {
 			 	case 'PUT':
+					//1. Get User's fields from Request Body
+					$request_body = HttpEngineService::get_array_from_json_body();
 					return $this->insert($request_body["frase"]);
 			 		break;
 			 	
