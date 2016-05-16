@@ -71,7 +71,7 @@
 		}
 
 
-		private function insert($frase_txt) {
+		public function insert($frase_txt) {
 
 			$new_id = $this->get_new_id();
 
@@ -83,7 +83,7 @@
 		}
 
 
-		private function get_new_id() {
+		public function get_new_id() {
 
 			$frases_aux = $this->json_frases_array["frases"];
 			if(!count($frases_aux))
@@ -101,7 +101,7 @@
 		}
 
 
-		private function get_by_id($id) {
+		public function get_by_id($id) {
 
 			$frases_aux = $this->json_frases_array["frases"];
 
@@ -117,7 +117,7 @@
 		}
 
 
-		private function mark_as_favorita($id) {
+		public function mark_as_favorita($id) {
 
 			$frase_aux = null;
 			foreach ($this->json_frases_array["frases"] as $key => $frase) {
@@ -145,7 +145,7 @@
 		}
 
 
-		private function get_all_favoritas() {
+		public function get_all_favoritas() {
 
 			function is_favorita($frase)
 			{

@@ -1,15 +1,10 @@
 <?php
-/**
- * McFlyApp FraseClass
- *
- * @author     Galo <galo.aragoneses@gmail.com>
- * @package    \app\domain
- * @license    https://www.gnu.org/licenses/agpl-3.0.html GNU Affero General Public License Version 3 (AGPL3)
- */
 
     require_once "PHPUnit/Autoload.php";
+    require "../domain/FraseClass.php";
 
-    class FraseTest extends PHPUnit_Framework_TestCase {
+    class FraseTest extends PHPUnit_Framework_TestCase
+    {
 
         public function testFailDummy()
         {
