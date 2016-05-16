@@ -19,4 +19,21 @@ fraseApp.controller('homeController', ['$scope', '$http',
 			});
 		}
 
+
+		$scope.model = { frase: "" };
+		$scope.insertFrase = insertFrase;
+
+		function insertFrase() {
+			$http({
+				method: 'PUT',
+				data: { frase: $scope.model.frase },
+				url: 'api/frase/edit'
+			}).then(function(response) {
+				debugger;
+				$scope.data.dummyResponse = "Valor devuelto:" + response.data;
+			}, function(err) {
+				throw err;
+			});
+		}
+
 	}]);

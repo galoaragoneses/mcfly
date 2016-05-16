@@ -21,8 +21,18 @@
 
  <body ng-app="fraseApp" ng-controller="homeController">
 
-    <button ng-click="dummy()">PBI - 1</button>
+    <h3>PBI - 1</h3>
+    <button ng-click="dummy()">Get - PBI - 1</button>
     <blockquote>{{ data.dummyResponse }}</blockquote>
+
+    <h3>PBI - 2</h3>
+
+    <label for="frase">Nueva Frase:</label>
+    <br />
+    <textarea placeholder="Introduce una nueva frase" ng-model="model.frase" id="frase" required></textarea> 
+
+    <br />
+    <button ng-click="insertFrase()">PBI - 2</button>
 
  </body>
 

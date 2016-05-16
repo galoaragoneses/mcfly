@@ -21,7 +21,7 @@
 
 				/** Set action */
 				$action_name = empty(RoutingEngineService::get_action_name()) 
-								? "get_all" //Default when empty action
+								? "edit" //Default when empty action
 								: RoutingEngineService::get_action_name();
 
 				/** Execute action */

@@ -36,6 +36,7 @@
 
 	/** Controllers */	
 	include('controllers/DummyControllerClass.php');
+	include('controllers/FraseControllerClass.php');
 
 	/** Domain */
 	include('domain/FraseClass.php');
