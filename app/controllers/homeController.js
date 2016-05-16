@@ -1,16 +1,18 @@
 
-fraseApp.controller('homeController', ['$scope', '$http',
+fraseApp.controller("homeController", ["$scope", "$http",
 	function($scope, $http) { 
 
 		$scope.data = {};
+
+		var api_url_base = "api/frase";
 
 		$scope.data.dummyResponse = "";
 		$scope.dummy = dummy;
 
 		function dummy() {
 			$http({
-				method: 'GET',
-				url: 'api/dummy'
+				method: "GET",
+				url: "api/dummy"
 			}).then(function(response) {
 				$scope.data.dummyResponse = "Valor devuelto:" + response.data;
 			}, function(err) {
@@ -24,9 +26,9 @@ fraseApp.controller('homeController', ['$scope', '$http',
 
 		function insertFrase() {
 			$http({
-				method: 'PUT',
+				method: "PUT",
 				data: { frase: $scope.model.frase },
-				url: 'api/frase'
+				url: api_url_base
 			}).then(function(response) {
 				$scope.data.dummyResponse = "Valor devuelto:" + response.data;
 			}, function(err) {
@@ -39,8 +41,8 @@ fraseApp.controller('homeController', ['$scope', '$http',
 
 		function getAll() {
 			$http({
-				method: 'GET',
-				url: 'api/frase'
+				method: "GET",
+				url: api_url_base
 			}).then(function(response) {
 				$scope.data.fraseList = response.data;
 			}, function(err) {
@@ -58,11 +60,11 @@ fraseApp.controller('homeController', ['$scope', '$http',
 		$scope.getById = getById;
 
 		function getById(id) {
-			var aux_url = 'api/frase/' + id;
+			var aux_url = api_url_base + "/" + id;
 			//console.log(aux_url);
 
 			$http({
-				method: 'GET',
+				method: "GET",
 				url: aux_url
 			}).then(function(response) {
 				$scope.data.fraseObj = response.data;
@@ -74,10 +76,10 @@ fraseApp.controller('homeController', ['$scope', '$http',
 		$scope.markAsFavorita = markAsFavorita;
 
 		function markAsFavorita(id) {
-			var aux_url = 'api/frase/' + id + '/favorita';
+			var aux_url = api_url_base + "/" + id + "/favorita";
 
 			$http({
-				method: 'GET',
+				method: "GET",
 				url: aux_url
 			}).then(function(response) {
 				$scope.getAll();
@@ -92,8 +94,8 @@ fraseApp.controller('homeController', ['$scope', '$http',
 
 		function getAllFavoritas() {
 			$http({
-				method: 'GET',
-				url: 'api/frase/favoritas'
+				method: "GET",
+				url: api_url_base + "/favoritas"
 			}).then(function(response) {
 				$scope.data.frasesFavoritasList = response.data;
 			}, function(err) {
