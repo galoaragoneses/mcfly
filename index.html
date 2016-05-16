@@ -21,11 +21,11 @@
 
  <body ng-app="fraseApp" ng-controller="homeController">
 
-    <h3>PBI - 1</h3>
+    <h3>PBI - 1, Test Http Request</h3>
     <button ng-click="dummy()">Get - PBI - 1</button>
     <blockquote>{{ data.dummyResponse }}</blockquote>
 
-    <h3>PBI - 2</h3>
+    <h3>PBI - 2, Insertar nueva frase</h3>
 
     <label for="frase">Nueva Frase:</label>
     <br />
@@ -34,7 +34,7 @@
     <br />
     <button ng-click="insertFrase()">PBI - 2</button>
 
-    <h3>PBI - 3, 4, 5</h3>
+    <h3>PBI - 3, Consultar todas las notas. 4, Consulta de una sola nota. 5, Marcar como Favorita</h3>
     <button ng-click="getAll()">Get All - Get By Id - Marcar Favoritos</button>
     <ul>
         <li ng-repeat="fraseObj in data.fraseList">
@@ -44,14 +44,14 @@
         </li>
     </ul><br />
 
-    <h3>PBI - 4</h3>
+    <h3>PBI - 4, Consulta de una sola nota</h3>
     <span ng-if="!data.fraseObj">Para obtener una sola frase, ejecutar el GET de la lista o rellena el siguiente formulario para obtenerla a partir del id</span><br />
     <blockquote ng-if="data.fraseObj">{{ fraseFormated(data.fraseObj) }}</blockquote>
 
     <button ng-click="getById(data.id)">Get - PBI - 4</button><br />
     <label for="frase_id">Id</label>:<input type="number" ng-model="data.id" />
 
-    <h3>PBI - 6</h3>
+    <h3>PBI - 6, Consultar todas las notas favoritas</h3>
     <button ng-click="getAllFavoritas()">Get Favoritas</button>
     <ul>
         <li ng-repeat="fraseObj in data.frasesFavoritasList">

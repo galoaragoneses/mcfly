@@ -7,24 +7,6 @@
  * @license    https://www.gnu.org/licenses/agpl-3.0.html GNU Affero General Public License Version 3 (AGPL3)
  */
 
-	/** Global Vars */
-	$_MCFLY_GLOBALS = array();
-	$_MCFLY_GLOBALS["settings"] = array();
-
-	/** Load Settings from webconfig.xml file */
-	function nb_loadSettings() {
-		global $_MCFLY_GLOBALS;
-
-		$file_path = "./webconfig.xml";
-		if(!file_exists($file_path)) {
-			throw new Exception("No Existe fichero de configuración del api");
-		}
-
-		$aux_xml = file_get_contents($file_path);
-		$_MCFLY_GLOBALS["settings"] = simplexml_load_string($aux_xml);
-	}
-
-	nb_loadSettings();
 
 	/** Load Dependecies */
 	/** Services */
