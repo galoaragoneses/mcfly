@@ -10,7 +10,7 @@ fraseApp.controller('homeController', ['$scope', '$http',
 		function dummy() {
 			$http({
 				method: 'GET',
-				url: 'api/dummy/dummy'
+				url: 'api/dummy'
 			}).then(function(response) {
 				$scope.data.dummyResponse = "Valor devuelto:" + response.data;
 			}, function(err) {
@@ -26,9 +26,8 @@ fraseApp.controller('homeController', ['$scope', '$http',
 			$http({
 				method: 'PUT',
 				data: { frase: $scope.model.frase },
-				url: 'api/frase/edit'
+				url: 'api/frase'
 			}).then(function(response) {
-				debugger;
 				$scope.data.dummyResponse = "Valor devuelto:" + response.data;
 			}, function(err) {
 				throw err;
@@ -44,6 +43,23 @@ fraseApp.controller('homeController', ['$scope', '$http',
 				url: 'api/frase'
 			}).then(function(response) {
 				$scope.data.fraseList = response.data.frases;
+			}, function(err) {
+				throw err;
+			});
+		}
+
+		$scope.data.fraseObj = {};
+		$scope.getById = getById;
+
+		function getById() {
+			var aux_url = 'api/frase/' + $scope.data.id;
+			//console.log(aux_url);
+
+			$http({
+				method: 'GET',
+				url: aux_url
+			}).then(function(response) {
+				$scope.data.fraseObj = response.data;
 			}, function(err) {
 				throw err;
 			});

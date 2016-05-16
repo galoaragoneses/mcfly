@@ -27,7 +27,7 @@
 		/* Method POST
 		 * Create new Frase
 		 */
-		public function edit() {
+		public function init() {
 
 			//1. Get User's fields from $request_body
 			$request_body = HttpEngineService::get_array_from_json_body();
@@ -40,17 +40,22 @@
 			 	
 			 	case 'GET':
 			 	default:
-			 		$params_count = count(RoutingEngineService::get_params());
+			 		$params = RoutingEngineService::get_params();
+			 		$params_count = count($params);
 
 			 		if (!$params_count) {
 			 			//get_all
 						HttpEngineService::set_response_json_headers();
 			 			return json_encode($this->json_frases_array);
+
+			 		} else {
+			 			//get_by_id
+			 			$id = intval($params[0]);
+			 			return json_encode($this->get_by_id($id));
 			 		}
+
 			 		break;
 			 }
-
-
 		}
 
 
@@ -84,5 +89,19 @@
 		}
 
 
+		private function get_by_id($id) {
+
+			$frases_aux = $this->json_frases_array["frases"];
+
+			$frase_aux = null;
+			foreach ($frases_aux as $key => $frase) {
+				$aux_id = intval($frase["id"]);
+			 	
+			 	if ($aux_id == $id)
+			 		return $frase;
+			}
+
+			return null;
+		}
 
 	}

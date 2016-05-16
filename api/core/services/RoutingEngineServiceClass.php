@@ -37,17 +37,13 @@ class RoutingEngineService {
 		self::setParams();
 
 		self::set_controller_name();
-		self::set_action_name();
 	}
 	
 	private static function setParams() {
 
 		$base_url = self::getCurrentUri();
 
-		//echo $base_url."<br>"; //TODO: Log
-
 		$param_aux = array();
-
 		$param_aux = explode('/', $base_url);
 
 		$param_aux_count = 0;
@@ -90,22 +86,9 @@ class RoutingEngineService {
 
 	}
 
-	private static function set_action_name() {
-
-		if(!empty(self::$params))
-			self::$action_name = array_shift(self::$params);
-
-	}
-
 	public static function get_controller_name() {
 
 		return self::$controller_name;
-
-	}
-
-	public static function get_action_name() {
-
-		return self::$action_name;
 
 	}
 }

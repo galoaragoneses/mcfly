@@ -19,14 +19,9 @@
 				$controller_name = RoutingEngineService::get_controller_name();
 				$controller_obj = new $controller_name;
 
-				/** Set action */
-				$action_name = empty(RoutingEngineService::get_action_name()) 
-								? "edit" //Default when empty action
-								: RoutingEngineService::get_action_name();
-
 				/** Execute action */
 				HttpEngineService::set_response_json_headers();
-				echo $controller_obj->$action_name();
+				echo $controller_obj->init();
 
 			} catch (Exception $err) {
 				

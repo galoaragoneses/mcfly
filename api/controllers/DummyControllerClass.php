@@ -12,7 +12,7 @@
 		/* Method GET
 		 * Get Validation Json
 		 */
-		public function dummy() {
+		public function init() {
 
 			return json_encode(true);
 

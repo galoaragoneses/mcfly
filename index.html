@@ -40,6 +40,11 @@
         <li ng-repeat="fraseObj in data.fraseList">{{ fraseObj.frase }}</li>
     </ul>
 
+    <h3>PBI - 4</h3>
+    <button ng-click="getById()">Get - PBI - 4</button><br />
+    <input type="number" ng-model="data.id" /><br />
+    <blockquote>{{ data.fraseObj.id + "-" + data.fraseObj.frase }}</blockquote>
+
  </body>
 
  </html>
