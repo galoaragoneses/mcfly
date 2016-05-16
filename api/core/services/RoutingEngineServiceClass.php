@@ -1,6 +1,6 @@
 <?php
 /**
- * NotesBook Bootstrap File
+ * McFlyApp Bootstrap File
  *
  * @author     Nombre <email@email.com>
  * @package    \application\config

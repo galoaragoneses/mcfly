@@ -1,6 +1,6 @@
 <?php 
 /**
- * NotesBook start_application
+ * McFlyApp start_application
  *
  * @author     Nombre <email@email.com>
  * @package    \api\core

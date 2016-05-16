@@ -1,6 +1,6 @@
 <?php
 /**
- * NotesBook FraseClass
+ * McFlyApp FraseClass
  *
  * @author     Galo <galo.aragoneses@gmail.com>
  * @package    \app\domain

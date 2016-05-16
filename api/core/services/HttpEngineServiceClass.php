@@ -1,6 +1,6 @@
 <?php
 /**
- * NotesBook Http Engine Service
+ * McFlyApp Http Engine Service
  *
  * @author     Nombre <email@email.com>
  * @package    \application\config
